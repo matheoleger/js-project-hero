@@ -13,7 +13,7 @@ Notre but est de...
 ## Outils pour le projet :
 - **Visual Studio Code** avec l'extension ***Go Live***
 - **Gitea** avec le [repository](https://git.ytrack.learn.ynov.com/MLEGER/js-project-hero)
-- **Trello** pour l'organisation du projet et la répartition des tâches. (retrouver [ici](''))
+- **Trello** pour l'organisation du projet et la répartition des tâches. (retrouver [ici](https://trello.com/b/u1n4r3pf/superheros))
 - **Google Docs** pour prendre des notes diverses ([ici](https://docs.google.com/document/d/1-eSvuJrMGruAunlntBXCe9iG6dH2hWj5vaIouUKGFF0/edit))
 
 
