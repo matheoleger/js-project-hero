@@ -3,15 +3,12 @@ let oneHero;
 let superHeroes;
 const search = document.getElementById('search')
 
-
 console.log(search)
-
 
 search.addEventListener('keyup', (e) => {
     console.log(e.target.value);
 
 });
-
 
 
 
