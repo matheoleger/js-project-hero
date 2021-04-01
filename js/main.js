@@ -1,7 +1,16 @@
 let body = document.querySelector('body')
 let oneHero;
 let superHeroes;
-const searchinput = document.getElementById('searchinput')
+const search = document.getElementById('search')
+
+
+console.log(search)
+
+
+search.addEventListener('keyup', (e) => {
+    console.log(e.target.value);
+
+});
 
 
 
@@ -10,48 +19,51 @@ const loadData = heroes => {
     console.log(heroes) // write your code using the data in a function
     // note that you can not access heroes before this function is called.
 
-    let tableEl = document.querySelector('#table_heroes')
-
     for(elOfHeroes of heroes) {
 
-        let heroCarac = [elOfHeroes.images.xs, elOfHeroes.name, elOfHeroes.biography, elOfHeroes.powerstats, elOfHeroes.appearance]
-        console.log(heroCarac)
-        // oneHero = elOfHeroes.name
-        // console.log(oneHero)
-    
-        // let name = document.createElement('p')
-        // let contentName = document.createTextNode(oneHero)
-        // body.append(name)
-        // name.appendChild(contentName)
+        let tableEl = document.createElement('table')
+        let theadEl = document.createElement('thead')
+        let contentThead = document.createTextNode(elOfHeroes.id)
+        let tbodyEl = document.createElement('tbody')
 
-        let heroEl = document.createElement('tr')
+        let appearance = elOfHeroes.appearance
+        let biography = elOfHeroes.biography
 
+        // pour les boucles ont peut surement faire une fonction avec une boucle
+        // qui prend en argument le "elOfHeroes.qlqchose"
+        // tableau avec tous les trucs a printer ?? et donc une boucle qui print
+        // chaque element du tableau ??
 
+        for(necessaryData in appearance) {
+            //console.log(necessaryData)
 
-
-        for(necessaryData of heroCarac) {
-
-            let tdEl = document.createElement('td')
-
-            if(necessaryData == heroCarac[0]) {
-                let contentImg = document.createElement('img')
-                contentImg.setAttribute("src", necessaryData)
-                tdEl.appendChild(contentImg)
-            } else {
-                let contentTd = document.createTextNode(necessaryData)
-                tdEl.appendChild(contentTd)
+            if(necessaryData != 'hairColor' && necessaryData != 'eyeColor') {
+                let contentTbody = document.createTextNode(appearance[necessaryData])
+                tbodyEl.appendChild(contentTbody)
             }
-            
-            
-            
-            heroEl.append(tdEl)
-            
+                
         }
 
-        tableEl.append(heroEl)
-           
+        for(necessaryData in biography) {
+            if(necessaryData == 'placeOfBirth' || necessaryData == 'alignment' || necessaryData == 'fullName') {
+                let contentTbody = document.createTextNode(biography[necessaryData])
+                tbodyEl.appendChild(contentTbody)
+            }
+        }
+
+        let heroesImg = document.createElement('img')
+        heroesImg.setAttribute('src', elOfHeroes.images.xs)
+        tbodyEl.appendChild(heroesImg)
+
+        body.append(tableEl)
+        tableEl.append(theadEl, tbodyEl)
+        theadEl.appendChild(contentThead)
+
+                
 
     }
+
+
 
 }
 
@@ -63,3 +75,9 @@ fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
     .then(loadData) // .then will call the function with the JSON value
 
 console.log(superHeroes)
+
+
+
+
+
+
