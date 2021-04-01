@@ -10,7 +10,8 @@ const loadData = heroes => {
 
     for(elOfHeroes of heroes) {
 
-        let heroCarac = [elOfHeroes.images.xs, elOfHeroes.name, elOfHeroes.biography, elOfHeroes.powerstats, elOfHeroes.appearance]
+        // let heroCarac = [elOfHeroes.images.xs, elOfHeroes.name, elOfHeroes.biography, elOfHeroes.powerstats, elOfHeroes.appearance]
+        let heroCarac = [elOfHeroes.images.xs, elOfHeroes.name, elOfHeroes.biography.fullName, elOfHeroes.powerstats, elOfHeroes.appearance.race, elOfHeroes.appearance.gender, elOfHeroes.appearance.height, elOfHeroes.appearance.weight, elOfHeroes.biography.placeOfBirth, elOfHeroes.biography.alignment]
         console.log(heroCarac)
         // oneHero = elOfHeroes.name
         // console.log(oneHero)
@@ -22,23 +23,34 @@ const loadData = heroes => {
 
         let heroEl = document.createElement('tr')
 
-
-
-
         for(necessaryData of heroCarac) {
 
             let tdEl = document.createElement('td')
+            let contentTd
 
             if(necessaryData == heroCarac[0]) {
-                let contentImg = document.createElement('img')
-                contentImg.setAttribute("src", necessaryData)
-                tdEl.appendChild(contentImg)
+                contentTd = document.createElement('img')
+                contentTd.setAttribute("src", necessaryData)
+                tdEl.appendChild(contentTd)   
+
+            } else if (necessaryData == heroCarac[3]) {
+                
+                tdEl.className = "powers"
+
+                for (powerKey in necessaryData) {
+                    contentTd = document.createElement('span')
+
+                    let text = document.createTextNode(`${powerKey} : ${necessaryData[powerKey]}`)
+                    
+                    contentTd.appendChild(text);
+                    
+                    tdEl.append(contentTd)
+                }
+
             } else {
-                let contentTd = document.createTextNode(necessaryData)
-                tdEl.appendChild(contentTd)
+                contentTd = document.createTextNode(necessaryData);                           
+                tdEl.appendChild(contentTd)            
             }
-            
-            
             
             heroEl.append(tdEl)
             
