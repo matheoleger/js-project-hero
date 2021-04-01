@@ -1,20 +1,12 @@
 let body = document.querySelector('body')
 let oneHero;
 let superHeroes;
-const search = document.getElementById('search')
-
-
-
-search.addEventListener('keyup', (e) => {
-    console.log(e.target.value);
-
-});
-
-
 
 const loadData = heroes => {
     console.log(heroes) // write your code using the data in a function
     // note that you can not access heroes before this function is called.
+
+    let tableEl = document.querySelector('#table_heroes')
 
     for(elOfHeroes of heroes) {
 
@@ -64,23 +56,12 @@ const loadData = heroes => {
             
         }
 
-        let heroesImg = document.createElement('img')
-        heroesImg.setAttribute('src', elOfHeroes.images.xs)
-        tbodyEl.appendChild(heroesImg)
-
-        body.append(tableEl)
-        tableEl.append(theadEl, tbodyEl)
-        theadEl.appendChild(contentThead)
-
-                
+        tableEl.append(heroEl)
+           
 
     }
 
-
-
 }
-
-
   
   // Request the file fetch, it will download it in your browser cache
 fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
@@ -88,9 +69,3 @@ fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
     .then(loadData) // .then will call the function with the JSON value
 
 console.log(superHeroes)
-
-
-
-
-
-
