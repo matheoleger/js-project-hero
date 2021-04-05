@@ -2,13 +2,25 @@ body {
     font-family: "Montserrat", "Arial";
 }
 
-table, th, td {
+table, th, tr {
+    transition: 1s;
+    border-collapse: collapse;
     border: 1px solid rgb(75, 75, 75);
     text-align: center;
 }
 
 th {
     background-color: rgb(252, 213, 213);
+    padding: 10px;
+}
+
+td {
+    border-right: 1px solid rgb(75, 75, 75);
+}
+
+tr:hover {
+    transition: 1s;
+    background-color: rgb(248, 236, 236);
 }
 
 .powers{
