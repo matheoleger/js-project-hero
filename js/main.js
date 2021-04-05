@@ -5,16 +5,17 @@ let minimumShownHero = 0;   // value of first hero's id that can be displayed (2
 // let 
 
 const loadData = heroes => {
-    // console.log(heroes) // write your code using the data in a function
+    console.log(heroes) // write your code using the data in a function
     // note that you can not access heroes before this function is called.
 
     let tableEl = document.querySelector('#table_heroes')
 
-    for(elOfHeroes of heroes) {
+    for(let i = 0; i < heroes.length; i++) {
+        // console.log(elOfHeroes)
 
         // let heroCarac = [elOfHeroes.images.xs, elOfHeroes.name, elOfHeroes.biography, elOfHeroes.powerstats, elOfHeroes.appearance]
-        let heroCarac = [elOfHeroes.images.xs, elOfHeroes.name, elOfHeroes.biography.fullName, elOfHeroes.powerstats, elOfHeroes.appearance.race, elOfHeroes.appearance.gender, elOfHeroes.appearance.height, elOfHeroes.appearance.weight, elOfHeroes.biography.placeOfBirth, elOfHeroes.biography.alignment]
-        console.log(heroCarac)
+        let heroCarac = [heroes[i].images.xs, heroes[i].name, heroes[i].biography.fullName, heroes[i].powerstats, heroes[i].appearance.race, heroes[i].appearance.gender, heroes[i].appearance.height, heroes[i].appearance.weight, heroes[i].biography.placeOfBirth, heroes[i].biography.alignment]
+        // console.log(heroCarac)
 
         let heroEl = document.createElement('tr')
 
@@ -51,7 +52,7 @@ const loadData = heroes => {
             
         }
 
-        heroEl.setAttribute("id", elOfHeroes.id)
+        heroEl.setAttribute("id", i)
 
         tableEl.append(heroEl)
            
