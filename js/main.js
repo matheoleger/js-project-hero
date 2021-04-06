@@ -72,29 +72,7 @@ fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
     .then((response) => response.json()) // parse the response from JSON
     .then(loadData) // .then will call the function with the JSON value
 
-console.log(superHeroes)
-
-// search bar
-
-const search = () => {
-    let searching = document.getElementById('searching');
-    let heroElements = document.querySelectorAll('tr:not(tr#headbar)')
-
-    // console.log(searching.value);
-
-    let regex = RegExp(searching.value.toUpperCase(), 'g');
-
-    for (el of heroElements) {
-
-        if (regex.test(el.children[1].textContent.toUpperCase()) == true) {
-            // console.log(el.children[1].textContent)
-            el.style.display = ""
-        } else {
-            el.style.display = "none"
-        }
-    }
-
-}
+// console.log(superHeroes)
 
 let selectNbrOfEl = document.querySelector('select');
 let choice = selectNbrOfEl.selectedIndex
@@ -148,3 +126,27 @@ function pagination(valueOfBtn) {
     }
 
 }
+
+// search bar
+
+const search = () => {
+    let searching = document.getElementById('searching');
+    let heroElements = document.querySelectorAll('tr:not(tr#headbar)')
+
+    // console.log(searching.value);
+
+    let regex = RegExp(searching.value.toUpperCase(), 'g');
+
+    for (el of heroElements) {
+
+        if (regex.test(el.children[1].textContent.toUpperCase()) == true) {
+            // console.log(el.children[1].textContent)
+            el.style.display = ""
+        } else {
+            el.style.display = "none"
+        }
+    }
+
+}
+
+
