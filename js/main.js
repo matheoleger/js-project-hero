@@ -75,6 +75,12 @@ fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json')
 
 console.log(superHeroes)
 
+
+
+
+
+// search bar 
+
 const search = () => {
     let searching = document.getElementById('searching');
     let heroElements = document.querySelectorAll('tr:not(tr#headbar)')
