@@ -15,21 +15,27 @@
     </button>
 </div>
 <body>
+    <div id="main-title">
+        <img src="../static/img/super.png">
+        <h1>SUPERHERO LIST</h1>
+    </div>
     <input type="text" onkeyup="search()" id="searching">
 
-    <input type="submit" value="go">
-    <select id="select">
-        <option value=10>10 elements</option>
-        <option value=20 selected>20 elements</option>
-        <option value=50>50 elements</option>
-        <option value=100>100 elements</option>
-        <option value=563>all elements</option>
-    </select>
+    <div>
+        <select id="select">
+            <option value=10>10 elements</option>
+            <option value=20 selected>20 elements</option>
+            <option value=50>50 elements</option>
+            <option value=100>100 elements</option>
+            <option value=563>all elements</option>
+        </select>
 
-    <input type="button" onclick="pagination('first')" value="<<">
-    <input type="button" onclick="pagination('previous')" value="<">
-    <input type="button" onclick="pagination('next')" value=">">
-    <input type="button" onclick="pagination('last')" value=">>">
+        <input type="button" onclick="pagination('first')" value="<<">
+        <input type="button" onclick="pagination('previous')" value="<">
+        <input type="button" onclick="pagination('next')" value=">">
+        <input type="button" onclick="pagination('last')" value=">>">        
+    </div>
+
 
     <table id="table_heroes">
         <tr id="headbar">
