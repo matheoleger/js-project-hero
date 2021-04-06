@@ -1,6 +1,4 @@
-let body = document.querySelector('body')
-let oneHero;
-let superHeroes;
+
 let body = document.querySelector('body');
 let maximumShownHero = 20; // value of last hero's id that can be displayed (20 by default)
 let minimumShownHero = 0;   // value of first hero's id that can be displayed (20 by default)
