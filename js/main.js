@@ -4,9 +4,6 @@ let minimumShownHero = 0;   // value of first hero's id that can be displayed (2
 
 // let
 
-
-
-
 const loadData = heroes => {
     console.log(heroes) // write your code using the data in a function
     // note that you can not access heroes before this function is called.
