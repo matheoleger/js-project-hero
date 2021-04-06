@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"> 
     <title>Document</title>
 </head>
 
@@ -15,40 +17,43 @@
     </button>
 </div>
 <body>
-    <div id="main-title">
+    <div class="main-title">
         <img src="../static/img/super.png">
-        <h1>SUPERHERO LIST</h1>
+        <h2>THE</h2>
+        <h1>SUPERHEROES LIST</h1>
     </div>
-    <input type="text" onkeyup="search()" id="searching">
+    <div class="navigate-el">
+        <input id="searching" type="text" onkeyup="search()"  placeholder="Rechercher...">
 
-    <div>
-        <select id="select">
-            <option value=10>10 elements</option>
-            <option value=20 selected>20 elements</option>
-            <option value=50>50 elements</option>
-            <option value=100>100 elements</option>
-            <option value=563>all elements</option>
-        </select>
-
-        <input type="button" onclick="pagination('first')" value="<<">
-        <input type="button" onclick="pagination('previous')" value="<">
-        <input type="button" onclick="pagination('next')" value=">">
-        <input type="button" onclick="pagination('last')" value=">>">        
+        <div class="multi-page">
+            <select id="select">
+                <option value=10>10 elements</option>
+                <option value=20 selected>20 elements</option>
+                <option value=50>50 elements</option>
+                <option value=100>100 elements</option>
+                <option value=563>all elements</option>
+            </select>
+    
+            <input type="button" onclick="pagination('first')" value="<<">
+            <input type="button" onclick="pagination('previous')" value="<">
+            <input type="button" onclick="pagination('next')" value=">">
+            <input type="button" onclick="pagination('last')" value=">>">        
+        </div>
     </div>
 
 
     <table id="table_heroes">
         <tr id="headbar">
             <th>Icon</th>
-            <th>Name</th>
-            <th>Full Name</th>
-            <th>Powerstats</th>
-            <th>Race</th>
-            <th>Gender</th>
-            <th>Height</th>
-            <th>Weight</th>
-            <th>Place Of Birth</th>
-            <th>alignment</th>
+            <th onclick="sort(this)" element="name" is-already-clicked=false>Name</th>
+            <th onclick="sort(this)">Full Name</th>
+            <th onclick="sort(this)">Powerstats</th>
+            <th onclick="sort(this)">Race</th>
+            <th onclick="sort(this)">Gender</th>
+            <th onclick="sort(this)">Height</th>
+            <th onclick="sort(this)">Weight</th>
+            <th onclick="sort(this)">Place Of Birth</th>
+            <th onclick="sort(this)">alignment</th>
         </tr>
     </table>
     <script src="../js/main.js"></script>
