@@ -70,7 +70,7 @@ const loadData = heroes => {
 
     }
 
-}
+
 
 
 
