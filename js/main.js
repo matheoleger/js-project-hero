@@ -132,7 +132,7 @@ const search = () => {
 
     // console.log(searching.value);
 
-    let regex = RegExp(searching.value.toUpperCase(), 'g');
+    let regex = RegExp(searching.value.toUpperCase());
 
     for (el of heroElements) {
 
