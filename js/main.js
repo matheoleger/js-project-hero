@@ -183,6 +183,7 @@ const toSort = (toSortingElement) => {
         
     }
 
+
     for (el of allHeroesElements) {
         el.remove()
     }
