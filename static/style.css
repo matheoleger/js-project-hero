@@ -1,0 +1,136 @@
+body {
+    font-family: "Montserrat", "Arial";
+    color: rgb(243, 243, 243);
+    background-color: hsl(0, 0%, 12%);
+}
+
+h2 {
+    align-self: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    padding-top: 10px;
+    font-weight: bolder;
+    /* border-bottom: #bb73e6 solid 2px; */
+}
+
+.main-title {
+    display: flex;
+    justify-content: center;
+}
+
+.main-title img {
+    filter: invert(0.9);
+    width: auto;
+    height: 50px;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.navigate-el {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#searching {
+    transition: 0.3s;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    /* border-radius: 20px; */
+    border-bottom: #bb73e6 solid 2px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    background: none;
+    color:rgb(243, 243, 243)
+}
+
+#searching:hover {
+    transition: 0.3s;
+    background: hsl(0, 0%, 20%);
+}
+
+/* .multi-page {
+    display: flex;
+    justify-content: right;
+    margin-bottom: 10px;
+} */
+
+.multi-page select {
+    transition: 0.3s;
+    font-size: 16px;
+    appearance: none;
+    background: none;
+    color:rgb(243, 243, 243);
+    border-right: none;
+    border-top: none;
+    border-left: none;
+    border-bottom: #bb73e6 solid 2px;
+    font-family: inherit;
+    padding: 2px;
+    margin-right: 5px;
+}
+
+.multi-page select:hover {
+    transition: 0.3s;
+    background-color: hsl(0, 0%, 20%);
+}
+
+.multi-page select option {
+    background-color:hsl(0, 0%, 12%);
+}
+
+.multi-page input {
+    font-family: inherit;
+    margin-right: 5px;
+    margin-left: 5px;
+    background: #bb73e6;
+    border: none;
+    border-radius: 10px;
+    color:rgb(243, 243, 243);
+    /* border-bottom: #bb73e6 solid 2px;
+    border-right: none;
+    border-top: none;
+    border-left: none;  */
+}
+
+.multi-page input:hover {
+    transition: 0.3s;
+    background: #ac65d4;
+}
+
+table, th, tr {
+    transition: 1s;
+    border-collapse: collapse;
+    border: 1px solid rgb(75, 75, 75);
+    text-align: center;
+}
+
+th {
+    /* background-color: rgb(252, 213, 213); */
+    background-color: #bb73e6 ;
+    padding: 10px;
+    cursor: pointer;
+}
+
+th:hover {
+    background-color: #a85cd4;
+}
+
+td {
+    border-right: 1px solid rgb(75, 75, 75);
+}
+
+tr:hover {
+    transition: 1s;
+    background-color: rgb(59, 59, 59);
+}
+
+.powers{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
