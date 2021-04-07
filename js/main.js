@@ -68,7 +68,7 @@ const display = () => {
     pagination();
 }
 
-// On récupère ici la valeur choisi dans le <select>
+//On récupère ici la valeur choisi dans le <select>
 selectNbrOfEl.addEventListener('click', () => {
 
     choice = selectNbrOfEl.selectedIndex;
