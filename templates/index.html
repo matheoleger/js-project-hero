@@ -41,19 +41,18 @@
         </div>
     </div>
 
-
     <table id="table_heroes">
         <tr id="headbar">
             <th>Icon</th>
             <th onclick="toSort(this)" element="name" is-already-clicked=false>Name</th>
-            <th onclick="toSort(this)" element="biography.fullName" is-already-clicked=false>Full Name</th>
-            <th onclick="toSort(this)" element="name" is-already-clicked=false>Powerstats</th>
-            <th onclick="toSort(this)" element="name" is-already-clicked=false>Race</th>
-            <th onclick="toSort(this)" element="name" is-already-clicked=false>Gender</th>
-            <th onclick="toSort(this)" element="name" is-already-clicked=false>Height</th>
-            <th onclick="toSort(this)" element="name" is-already-clicked=false>Weight</th>
-            <th onclick="toSort(this)" element="name" is-already-clicked=false>Place Of Birth</th>
-            <th onclick="toSort(this)" element="name" is-already-clicked=false>alignment</th>
+            <th onclick="toSort(this)" category="biography" element="fullName" is-already-clicked=false>Full Name</th>
+            <th onclick="toSort(this)" element="powerstats" is-already-clicked=false>Powerstats</th>
+            <th onclick="toSort(this)" category="appearance" element="race" is-already-clicked=false>Race</th>
+            <th onclick="toSort(this)" category="appearance" element="gender" is-already-clicked=false>Gender</th>
+            <th onclick="toSort(this)" category="appearance" element="height" is-already-clicked=false>Height</th>
+            <th onclick="toSort(this)" category="appearance" element="weight" is-already-clicked=false>Weight</th>
+            <th onclick="toSort(this)" category="biography" element="placeOfBirth" is-already-clicked=false>Place Of Birth</th>
+            <th onclick="toSort(this)" category="biography" element="alignment" is-already-clicked=false>alignment</th>
         </tr>
     </table>
     <script src="../js/main.js"></script>

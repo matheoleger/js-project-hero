@@ -149,42 +149,144 @@ const search = () => {
 
 }
 
+
 const toSort = (toSortingElement) => {
     // toSortingElement = sortingHTMLElement
     // console.log(toSortingElement)
 
     console.log('tout va bien tqt')
 
+    let category = toSortingElement.getAttribute('category');
     let elementAttribute = toSortingElement.getAttribute('element');
-    let isAlreadyClicked = toSortingElement.getAttribute('is-already-clicked')
-    let allHeroesElements = document.querySelectorAll('tr:not(tr#headbar)')
+    let isAlreadyClicked = toSortingElement.getAttribute('is-already-clicked');
+    let allHeroesElements = document.querySelectorAll('tr:not(tr#headbar)');
+    let allElementOfHeadBar = document.querySelectorAll('th');
     // console.log(isAlreadyClicked)
 
     // console.log(allJson[1]["biography"]["fullName"])
 
-    if (isAlreadyClicked == "false") {
-        allJson.sort((a,b) => {
-            return (a[elementAttribute] > b[elementAttribute])?1:-1;
-        });
+    // if (isAlreadyClicked == "false") {
+    //     allJson.sort((a,b) => {
+    //         return (a[elementAttribute] > b[elementAttribute])?1:-1;
+    //     });
 
-        toSortingElement.setAttribute('is-already-clicked', "true")
-        // console.log(toSortingElement.getAttribute('is-already-clicked'))
+    //     toSortingElement.setAttribute('is-already-clicked', "true")
+    //     // console.log(toSortingElement.getAttribute('is-already-clicked'))
 
-        // console.log(heroes[1][elementAttribute])
+    //     // console.log(heroes[1][elementAttribute])
         
+    // } else {
+    //     allJson.sort((a,b) => {
+    //         return (a[elementAttribute] < b[elementAttribute])?1:-1;
+    //     });
+
+    //     toSortingElement.setAttribute('is-already-clicked', "false")
+    //     console.log(allJson)
+    //     // console.log(toSortingElement.getAttribute('is-already-clicked'))
+        
+    // }
+
+    // if (isAlreadyClicked == "false") {
+    //     allJson.sort((a,b) => {
+    //         return (a[elementAttribute] > b[elementAttribute])?1:-1;
+    //     });
+
+    //     toSortingElement.setAttribute('is-already-clicked', "true")
+    //     // console.log(toSortingElement.getAttribute('is-already-clicked'))
+
+    //     // console.log(heroes[1][elementAttribute])
+        
+    // } else {
+    //     allJson.sort((a,b) => {
+    //         return (a[elementAttribute] < b[elementAttribute])?1:-1;
+    //     });
+
+    //     toSortingElement.setAttribute('is-already-clicked', "false")
+    //     console.log(allJson)
+    //     // console.log(toSortingElement.getAttribute('is-already-clicked'))
+        
+    // }
+
+    if (category == null) {
+        if (isAlreadyClicked == "false") {
+            allJson.sort((a,b) => {
+                return (a[elementAttribute] > b[elementAttribute])?1:-1;
+            });
+    
+            toSortingElement.setAttribute('is-already-clicked', "true")
+            // console.log(toSortingElement.getAttribute('is-already-clicked'))
+    
+            // console.log(heroes[1][elementAttribute])
+            
+        } else {
+            allJson.sort((a,b) => {
+                return (a[elementAttribute] < b[elementAttribute])?1:-1;
+            });
+    
+            toSortingElement.setAttribute('is-already-clicked', "false")
+            console.log(allJson)
+            // console.log(toSortingElement.getAttribute('is-already-clicked'))
+            
+        }
     } else {
-        allJson.sort((a,b) => {
-            return (a[elementAttribute] < b[elementAttribute])?1:-1;
-        });
+        if (isAlreadyClicked == "false") {
 
-        toSortingElement.setAttribute('is-already-clicked', "false")
-        console.log(allJson)
-        // console.log(toSortingElement.getAttribute('is-already-clicked'))
-        
+            allJson.sort((a,b) => {
+
+                if (Array.isArray(a[category][elementAttribute])) {
+                    return a[category][elementAttribute][0].localeCompare(b[category][elementAttribute][0], undefined, {numeric: true})
+                }
+
+                if (a[category][elementAttribute] == "" || a[category][elementAttribute] == "-") {
+                    return 1;
+                } else if (b[category][elementAttribute] == "" || b[category][elementAttribute] == "-") {
+                    return -1;
+                }
+
+                return (a[category][elementAttribute] > b[category][elementAttribute])?1:-1;
+            });
+    
+            toSortingElement.setAttribute('is-already-clicked', "true")
+            // console.log(toSortingElement.getAttribute('is-already-clicked'))
+    
+            // console.log("tesssst" + allJson[1][category][elementAttribute][1].split(' ')[0])
+            // parseInt(a[category][elementAttribute][0].split(' ')[0]) //pas trop mal pour weight
+            // console.log("teeeeesssssssssssst " + parseInt(allJson[1][category][elementAttribute][562]))
+            
+        } else {
+
+            allJson.sort((a,b) => {
+
+                if (Array.isArray(a[category][elementAttribute])) {
+                    return b[category][elementAttribute][0].localeCompare(a[category][elementAttribute][0], undefined, {numeric: true})
+                }
+
+                if (a[category][elementAttribute] == "" || a[category][elementAttribute] == "-") {
+                    return 1;
+                } else if (b[category][elementAttribute] == "" || b[category][elementAttribute] == "-") {
+                    return -1;
+                }
+
+                return (a[category][elementAttribute] < b[category][elementAttribute])?1:-1;
+            });
+    
+            toSortingElement.setAttribute('is-already-clicked', "false")
+            console.log(allJson)
+            // console.log(toSortingElement.getAttribute('is-already-clicked'))
+            
+        }
     }
 
+
+
     for (el of allHeroesElements) {
-        el.remove()
+        el.remove();
+    }
+
+    for (th of allElementOfHeadBar) {
+        if(th != toSortingElement) {
+            th.setAttribute('is-already-clicked', "false");
+        }      
     }
 
     display()
