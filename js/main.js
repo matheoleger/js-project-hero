@@ -149,7 +149,7 @@ const search = () => {
 
 }
 
-const sort = (toSortingElement) => {
+const toSort = (toSortingElement) => {
     // toSortingElement = sortingHTMLElement
     // console.log(toSortingElement)
 
@@ -159,6 +159,8 @@ const sort = (toSortingElement) => {
     let isAlreadyClicked = toSortingElement.getAttribute('is-already-clicked')
     let allHeroesElements = document.querySelectorAll('tr:not(tr#headbar)')
     // console.log(isAlreadyClicked)
+
+    // console.log(allJson[1]["biography"]["fullName"])
 
     if (isAlreadyClicked == "false") {
         allJson.sort((a,b) => {
